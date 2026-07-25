@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --flutter-blue: #0553B1;
+  --flutter-sky: #027DFD;
+  --flutter-light: #54C5F8;
+  --accent: #0066FF;
+  --dark: #0A0F1E;
+  --dark-2: #111827;
+  --surface: #F8FAFC;
+  --border: #E2E8F0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #0A0F1E;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+::selection {
+  background: #027DFD22;
+  color: #027DFD;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #027DFD; border-radius: 3px; }
+
+.gradient-text {
+  background: linear-gradient(135deg, #027DFD 0%, #54C5F8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-pad { padding: 96px 0; }
+
+.grid-overlay {
+  background-image: 
+    linear-gradient(rgba(2, 125, 253, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(2, 125, 253, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
