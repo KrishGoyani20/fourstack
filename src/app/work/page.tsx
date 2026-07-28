@@ -1,272 +1,268 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { Briefcase, Calendar, Building2, CheckCircle2, ArrowRight, Code2, Sparkles, TrendingUp } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Our Work — FourStackTech",
+  title: "Work & Experience — FourStackTech",
   description:
-    "Case studies and portfolio of Flutter apps built by FourStackTech — FinTech, HealthTech, EdTech, and more.",
+    "Professional experience and track record in building multi-platform Flutter applications, clean architecture, and cloud backends.",
 };
 
-const projects = [
+const experiences = [
   {
-    id: "smartwallet",
-    tag: "FinTech",
-    emoji: "💳",
-    title: "SmartWallet",
-    subtitle: "Digital Banking & Wallet App",
-    description:
-      "A full-featured digital banking app with biometric authentication, instant transfers, and real-time spending insights.",
-    problem:
-      "A funded fintech startup needed a polished digital wallet MVP to demonstrate to Series A investors within a tight 10-week window. They had limited technical resources and needed end-to-end delivery.",
-    solution:
-      "We delivered a Flutter app with Firebase backend, biometric login (Face ID / fingerprint), real-time Firestore transaction ledger, push notifications for transactions, and a clean analytics dashboard. CI/CD was set up from day one.",
-    impact: [
-      "₹2 Crore seed investment secured 3 months post-launch",
-      "10,000+ registered users in first 60 days",
-      "4.7★ rating on Play Store at launch",
-      "Zero critical bugs in first 90 days",
+    role: "Senior Flutter Developer",
+    type: "Freelance / Contract",
+    company: "Global Clients",
+    period: "Feb 2024 – Present",
+    isCurrent: true,
+    badge: "Current Role",
+    accentBg: "bg-slate-100 text-slate-900",
+    highlights: [
+      "Architected and scaled multi-platform Flutter applications using modular, Clean Architecture-based codebases, cutting feature-integration time by approximately 35%.",
+      "Partnered directly with global clients to scope requirements, define UI/UX direction, and compress delivery timelines from concept to launch.",
+      "Eliminated rendering bottlenecks and optimized state-management lifecycles, improving app responsiveness while reducing device memory and battery consumption.",
+      "Designed and built secure cloud backends on Firebase and Supabase with robust RESTful API integrations enabling real-time data sync across platforms.",
+      "Mentored junior engineers on implementation best practices, test-driven development, and code documentation standards, raising overall team code quality."
     ],
-    platforms: ["iOS", "Android"],
-    duration: "10 weeks",
-    color: "from-blue-600 to-blue-800",
-    tech: ["Flutter", "Dart", "Firebase", "Firestore", "BLoC", "Biometric Auth"],
+    techStack: [
+      "Flutter", "Dart", "Clean Architecture", "Firebase", "Supabase", 
+      "RESTful APIs", "State Management", "TDD", "Performance Tuning"
+    ],
+    metrics: [
+      { value: "35%", label: "Faster Feature Delivery" },
+      { value: "Multi-Platform", label: "iOS & Android Apps" },
+      { value: "Real-time", label: "Firebase & Supabase Sync" }
+    ]
   },
   {
-    id: "meditrack",
-    tag: "HealthTech",
-    emoji: "🏥",
-    title: "MediTrack",
-    subtitle: "Patient & Clinic Management Platform",
-    description:
-      "A cross-platform patient management system for a multi-branch clinic chain, with offline sync and doctor dashboards.",
-    problem:
-      "A growing clinic chain with 12 branches was managing patient records on paper and spreadsheets. Data was fragmented, appointments were missed, and billing was a mess.",
-    solution:
-      "We built a comprehensive Flutter app with role-based access (receptionist, doctor, admin), offline-first SQLite + Firestore sync, appointment scheduling, digital prescriptions, and PDF report generation.",
-    impact: [
-      "70% reduction in administrative overhead",
-      "Zero data loss incidents after system rollout",
-      "3x faster patient check-in process",
-      "Deployed across all 12 branches",
+    role: "Junior Flutter Developer",
+    type: "Full-Time",
+    company: "Zeron SYS",
+    period: "Feb 2022 – Feb 2024",
+    isCurrent: false,
+    badge: "2 Years",
+    accentBg: "bg-teal-50 text-teal-700",
+    highlights: [
+      "Built multi-platform applications in Flutter and native Android modules in Java, owning delivery across the full development-to-deployment lifecycle.",
+      "Converted design wireframes into pixel-perfect, responsive, brand-consistent customer-facing screens, improving UI consistency across releases.",
+      "Wrote clean, well-tested, documented code, running unit-level diagnostics and automated QA checks prior to every release."
     ],
-    platforms: ["iOS", "Android", "iPad"],
-    duration: "14 weeks",
-    color: "from-emerald-600 to-teal-700",
-    tech: ["Flutter", "SQLite", "Firebase", "Hive", "Riverpod", "PDF Generation"],
+    techStack: [
+      "Flutter", "Dart", "Java", "Android Native", "Responsive UI", 
+      "Unit Testing", "Automated QA", "Git"
+    ],
+    metrics: [
+      { value: "100%", label: "Pixel-Perfect Conversion" },
+      { value: "Full Lifecycle", label: "Dev to App Deployment" }
+    ]
   },
   {
-    id: "learnpath",
-    tag: "EdTech",
-    emoji: "📚",
-    title: "LearnPath",
-    subtitle: "Interactive E-Learning Platform",
-    description:
-      "An engaging mobile learning platform with video courses, quizzes, gamification, and Razorpay payment integration.",
-    problem:
-      "An edtech founder had validated their content model but needed a mobile-first platform that could compete with established players — without an enterprise budget.",
-    solution:
-      "We designed and built a Flutter app with video streaming (HLS), interactive quizzes, progress tracking, achievement badges, instructor dashboards, and seamless Razorpay subscription payments.",
-    impact: [
-      "5,000+ learners onboarded in Month 1",
-      "Rated 4.8★ on Google Play Store",
-      "₹15L MRR achieved by Month 3",
-      "92% course completion rate (vs. 30% industry avg)",
+    role: "Flutter Developer (Trainee)",
+    type: "Training & Internship",
+    company: "Creative Design and Multimedia Institute",
+    period: "Feb 2021 – Feb 2022",
+    isCurrent: false,
+    badge: "1 Year",
+    accentBg: "bg-purple-50 text-purple-700",
+    highlights: [
+      "Learned Flutter/Dart fundamentals by building UI components and sample applications under senior developer guidance.",
+      "Contributed to bug fixes, small feature builds, and unit tests, establishing a strong foundation in mobile application development.",
+      "Gained hands-on experience with Git version control, Agile sprint ceremonies, and collaborative code review."
     ],
-    platforms: ["iOS", "Android"],
-    duration: "12 weeks",
-    color: "from-violet-600 to-purple-800",
-    tech: ["Flutter", "Dart", "Node.js", "Razorpay", "HLS Streaming", "Firebase"],
-  },
-  {
-    id: "logistiq",
-    tag: "Logistics",
-    emoji: "🚚",
-    title: "LogistiQ",
-    subtitle: "Real-Time Fleet Tracking App",
-    description:
-      "A driver + dispatcher app for a logistics company with live GPS tracking, route optimization, and delivery confirmation.",
-    problem:
-      "A mid-sized logistics company had no visibility into their fleet — dispatchers called drivers manually, and customers had no way to track deliveries.",
-    solution:
-      "Two Flutter apps (driver & dispatcher) with real-time Google Maps integration, automated route optimization, push notifications, digital POD (proof of delivery) with signature capture.",
-    impact: [
-      "40% improvement in on-time delivery rate",
-      "60% reduction in customer service calls",
-      "Real-time visibility for 80+ fleet vehicles",
-      "Integrated with existing ERP system",
+    techStack: [
+      "Flutter Fundamentals", "Dart", "Git / GitHub", "Agile & Sprints", "UI Components"
     ],
-    platforms: ["Android"],
-    duration: "16 weeks",
-    color: "from-amber-500 to-orange-600",
-    tech: ["Flutter", "Google Maps SDK", "WebSockets", "PostgreSQL", "Django REST"],
-  },
+    metrics: [
+      { value: "Agile", label: "Sprint Ceremonies" },
+      { value: "Solid Core", label: "Dart & Flutter Architecture" }
+    ]
+  }
 ];
 
 export default function WorkPage() {
   return (
-    <div>
-      {/* Hero */}
-      <section className="pt-32 pb-20 bg-[#0A0F1E] relative overflow-hidden">
+    <div className="overflow-x-hidden bg-slate-50 min-h-screen">
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 bg-[#F8FAFC] relative overflow-hidden text-slate-900">
         <div className="absolute inset-0 grid-overlay opacity-40" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#027DFD] rounded-full blur-[150px] opacity-10" />
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative text-center">
-          <p className="text-xs font-semibold text-[#54C5F8] uppercase tracking-widest mb-4">
-            Portfolio
-          </p>
-          <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
-            Work that speaks
-            <br />
-            <span className="gradient-text">for itself.</span>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-slate-900 rounded-full blur-[150px] opacity-40 animate-pulse-slow" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-600 rounded-full blur-[150px] opacity-15" />
+
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
+          <div className="inline-flex items-center gap-2 bg-white shadow-sm backdrop-blur border border-slate-200 rounded-full px-4 py-2 mb-6">
+            <Briefcase size={16} className="text-slate-500" />
+            <span className="text-slate-900/90 text-xs font-semibold uppercase tracking-widest">
+              Professional Experience
+            </span>
+          </div>
+
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 tracking-tight">
+            Proven track record in <br />
+            <span className="gradient-text">Flutter Development</span>
           </h1>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">
-            Every project is a story of a problem solved, a product launched, and a client delighted. Here&apos;s our track record.
+
+          <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-10">
+            From trainee to Senior Flutter Architect — over 4 years of hands-on experience crafting high-performance, multi-platform applications, scalable backend integrations, and clean codebases.
           </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto border-t border-slate-200 pt-10">
+            <div className="bg-slate-100 border border-slate-200 rounded-2xl p-4">
+              <div className="text-3xl font-bold text-slate-900 mb-1">4+</div>
+              <div className="text-slate-600 text-xs font-medium">Years Experience</div>
+            </div>
+            <div className="bg-slate-100 border border-slate-200 rounded-2xl p-4">
+              <div className="text-3xl font-bold text-slate-500 mb-1">35%</div>
+              <div className="text-slate-600 text-xs font-medium">Faster Integration</div>
+            </div>
+            <div className="bg-slate-100 border border-slate-200 rounded-2xl p-4">
+              <div className="text-3xl font-bold text-emerald-400 mb-1">Clean</div>
+              <div className="text-slate-600 text-xs font-medium">Architecture Focus</div>
+            </div>
+            <div className="bg-slate-100 border border-slate-200 rounded-2xl p-4">
+              <div className="text-3xl font-bold text-purple-400 mb-1">Full-Stack</div>
+              <div className="text-slate-600 text-xs font-medium">Firebase &amp; Supabase</div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Projects */}
-      <section className="bg-white" id="case-studies">
-        {projects.map((project, i) => (
-          <article
-            key={project.id}
-            id={project.id}
-            className="border-b border-slate-100 last:border-none"
-          >
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
-              {/* Header */}
-              <div className="flex flex-wrap items-center gap-3 mb-10">
-                <span
-                  className={`inline-block bg-gradient-to-r ${project.color} text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full`}
-                >
-                  {project.tag}
-                </span>
-                {project.platforms.map((p) => (
-                  <span
-                    key={p}
-                    className="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full"
-                  >
-                    {p}
-                  </span>
-                ))}
-                <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full">
-                  {project.duration}
-                </span>
-              </div>
+      {/* Main Experience Timeline Section */}
+      <section className="py-20 lg:py-28 max-w-5xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <p className="text-xs font-semibold text-slate-900 uppercase tracking-widest mb-3">
+            Career Journey
+          </p>
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900">
+            Work Experience
+          </h2>
+          <p className="text-slate-500 mt-3 text-base">
+            Detailed breakdown of roles, responsibilities, and technical achievements.
+          </p>
+        </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                {/* Left */}
-                <div className={`lg:col-span-5 ${i % 2 === 1 ? "lg:order-2" : ""}`}>
-                  {/* App visual */}
-                  <div className={`bg-gradient-to-br ${project.color} rounded-2xl p-10 flex items-center justify-center min-h-[300px] relative overflow-hidden`}>
-                    <div className="absolute inset-0 opacity-10">
-                      <div className="absolute top-4 right-4 w-32 h-32 bg-white rounded-full" />
-                      <div className="absolute bottom-0 left-0 w-48 h-48 bg-white rounded-full" />
+        <div className="relative border-l-2 border-slate-200 ml-4 md:ml-8 pl-6 md:pl-12 flex flex-col gap-12">
+          {experiences.map((exp) => (
+            <div key={exp.role + exp.company} className="relative group">
+              {/* Timeline Dot */}
+              <div
+                className={`absolute -left-[31px] md:-left-[57px] top-6 w-6 h-6 md:w-7 md:h-7 rounded-full bg-white border-4 ${
+                  exp.isCurrent ? "border-slate-900" : "border-slate-400"
+                } shadow-md group-hover:scale-125 transition-transform duration-300`}
+              />
+
+              {/* Experience Card */}
+              <div className="bg-white rounded-3xl p-6 md:p-10 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300">
+                {/* Header */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-6 mb-6">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                      <span className={`text-xs font-bold px-3 py-1 rounded-full ${exp.accentBg}`}>
+                        {exp.badge}
+                      </span>
+                      <span className="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full flex items-center gap-1">
+                        <Building2 size={12} />
+                        {exp.company}
+                      </span>
+                      <span className="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
+                        {exp.type}
+                      </span>
                     </div>
-                    <div className="relative text-center">
-                      <div className="text-8xl mb-4">{project.emoji}</div>
-                      <h3 className="text-white font-bold text-2xl">{project.title}</h3>
-                      <p className="text-white/70 text-sm mt-1">{project.subtitle}</p>
-                    </div>
+
+                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
+                      {exp.role}
+                    </h3>
                   </div>
 
-                  {/* Tech stack */}
-                  <div className="mt-6">
-                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">
-                      Tech Used
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((t) => (
-                        <span
-                          key={t}
-                          className="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+                  <div className="flex items-center gap-2 text-sm font-semibold text-slate-600 bg-slate-50 border border-slate-200/60 px-4 py-2 rounded-xl shrink-0">
+                    <Calendar size={16} className="text-slate-900" />
+                    <span>{exp.period}</span>
                   </div>
                 </div>
 
-                {/* Right */}
-                <div className={`lg:col-span-7 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
-                    {project.title} — {project.subtitle}
-                  </h2>
-                  <p className="text-slate-500 text-base leading-relaxed mb-10">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-col gap-8">
-                    <div>
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center">
-                          <span className="text-red-500 text-xs font-bold">P</span>
+                {/* Key Metrics Badges */}
+                {exp.metrics && (
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
+                    {exp.metrics.map((m) => (
+                      <div
+                        key={m.label}
+                        className="bg-slate-50 border border-slate-100 rounded-2xl p-3.5 text-center"
+                      >
+                        <div className="text-lg md:text-xl font-bold text-slate-900">
+                          {m.value}
                         </div>
-                        <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                          The Problem
-                        </p>
-                      </div>
-                      <p className="text-slate-600 leading-relaxed pl-9">{project.problem}</p>
-                    </div>
-
-                    <div>
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center">
-                          <span className="text-[#027DFD] text-xs font-bold">S</span>
+                        <div className="text-slate-500 text-xs font-medium mt-0.5">
+                          {m.label}
                         </div>
-                        <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                          Our Solution
-                        </p>
                       </div>
-                      <p className="text-slate-600 leading-relaxed pl-9">{project.solution}</p>
-                    </div>
+                    ))}
+                  </div>
+                )}
 
-                    <div>
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
-                          <span className="text-green-600 text-xs font-bold">R</span>
-                        </div>
-                        <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                          Results & Impact
-                        </p>
-                      </div>
-                      <ul className="pl-9 flex flex-col gap-2">
-                        {project.impact.map((result) => (
-                          <li
-                            key={result}
-                            className="flex items-start gap-2 text-slate-900 font-medium text-sm"
-                          >
-                            <span className="text-green-500 mt-0.5">✓</span>
-                            {result}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                {/* Highlights List */}
+                <div className="mb-8">
+                  <h4 className="text-xs font-bold text-slate-600 uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <Sparkles size={14} className="text-slate-900" />
+                    Key Responsibilities &amp; Impact
+                  </h4>
+                  <ul className="flex flex-col gap-3.5">
+                    {exp.highlights.map((h, hIdx) => (
+                      <li key={hIdx} className="flex items-start gap-3">
+                        <CheckCircle2
+                          size={18}
+                          className="text-slate-900 shrink-0 mt-0.5"
+                        />
+                        <span className="text-slate-600 text-sm md:text-base leading-relaxed">
+                          {h}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Tech Stack Pills */}
+                <div className="pt-6 border-t border-slate-100">
+                  <h4 className="text-xs font-bold text-slate-600 uppercase tracking-widest mb-3 flex items-center gap-2">
+                    <Code2 size={14} className="text-slate-500" />
+                    Technologies &amp; Skills
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {exp.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-xs font-medium text-slate-700 bg-slate-100 hover:bg-slate-100 hover:text-slate-900 transition-colors px-3.5 py-1.5 rounded-xl border border-slate-200/50"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
-          </article>
-        ))}
+          ))}
+        </div>
       </section>
 
-      {/* CTA */}
-      <section className="section-pad bg-[#F8FAFC]">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
-          <p className="text-xs font-semibold text-[#027DFD] uppercase tracking-widest mb-4">
-            Your project next?
-          </p>
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
-            Let&apos;s build something
-            <br />
-            remarkable together.
+      {/* Call to Action */}
+      <section className="py-20 bg-[#F8FAFC] text-slate-900">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 bg-white shadow-sm rounded-full px-4 py-2 mb-6">
+            <TrendingUp size={16} className="text-emerald-400" />
+            <span className="text-xs font-semibold text-slate-900/90">Ready for Next Challenge</span>
+          </div>
+
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            Looking for a Senior Flutter Developer for your project?
           </h2>
+
+          <p className="text-slate-600 text-base md:text-lg mb-10 max-w-xl mx-auto">
+            Whether you need a full app build from scratch, performance optimization, or architecture consulting — let&apos;s discuss how we can work together.
+          </p>
+
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-[#027DFD] hover:bg-[#0553B1] text-white font-bold px-8 py-4 rounded-full text-base transition-all duration-200 shadow-lg hover:shadow-xl hover:shadow-blue-200"
+            className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-8 py-4 rounded-full text-base transition-all duration-300 shadow-xl shadow-slate-900/40 hover:-translate-y-0.5"
           >
-            Start a Project <ArrowRight size={18} />
+            Get In Touch <ArrowRight size={18} />
           </Link>
         </div>
       </section>

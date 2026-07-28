@@ -9,7 +9,6 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { label: "Services", href: "/services" },
   { label: "Work", href: "/work" },
-  { label: "About", href: "/about" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
@@ -31,7 +30,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[500] transition-all duration-300 ${
         scrolled
           ? "bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm"
           : "bg-transparent"
@@ -46,9 +45,7 @@ export default function Navbar() {
               alt="FourStackTech Logo"
               width={200}
               height={70}
-              className={`h-11 w-auto object-contain transition-all duration-300 ${
-                scrolled ? 'brightness-100' : 'brightness-0 invert'
-              }`}
+              className={`h-14 lg:h-16 w-auto object-contain transition-all duration-300 brightness-100`}
               priority
             />
           </div>
@@ -62,15 +59,13 @@ export default function Navbar() {
               href={link.href}
               className={`text-sm font-medium transition-colors duration-200 relative group ${
                 pathname === link.href
-                  ? 'text-[#027DFD]'
-                  : scrolled
-                  ? 'text-slate-600 hover:text-slate-900'
-                  : 'text-white/80 hover:text-white'
+                  ? 'text-slate-900'
+                  : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               {link.label}
               <span
-                className={`absolute -bottom-0.5 left-0 h-0.5 bg-[#027DFD] transition-all duration-200 ${
+                className={`absolute -bottom-0.5 left-0 h-0.5 bg-slate-900 transition-all duration-200 ${
                   pathname === link.href ? "w-full" : "w-0 group-hover:w-full"
                 }`}
               />
@@ -82,7 +77,7 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-4">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-[#027DFD] hover:bg-[#0553B1] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-blue-200 hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
           >
             Let&apos;s Talk
           </Link>
@@ -111,7 +106,7 @@ export default function Navbar() {
               href={link.href}
               className={`py-3 px-4 rounded-xl text-sm font-medium transition-colors ${
                 pathname === link.href
-                  ? "bg-blue-50 text-[#027DFD]"
+                  ? "bg-slate-100 text-slate-900"
                   : "text-slate-700 hover:bg-slate-50"
               }`}
             >
@@ -120,7 +115,7 @@ export default function Navbar() {
           ))}
           <Link
             href="/contact"
-            className="mt-2 text-center bg-[#027DFD] text-white text-sm font-semibold px-5 py-3 rounded-xl transition-all"
+            className="mt-2 text-center bg-slate-900 text-white text-sm font-semibold px-5 py-3 rounded-xl transition-all"
           >
             Let&apos;s Talk
           </Link>

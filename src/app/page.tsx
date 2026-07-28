@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Star, ChevronRight } from "lucide-react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const stats = [
   { value: "50+", label: "Apps Delivered" },
@@ -16,71 +18,58 @@ const services = [
     title: "Flutter App Development",
     description:
       "Single codebase. Two platforms. Pixel-perfect iOS and Android apps built with Google's Flutter framework for blazing-fast performance.",
+    iconBg: "bg-indigo-500",
+    arrowColor: "text-indigo-500",
+    lineColor: "bg-indigo-500",
   },
   {
     icon: "🎨",
     title: "UI/UX Design",
     description:
       "Human-centered design that converts. We craft intuitive, delightful interfaces that keep users engaged and coming back.",
+    iconBg: "bg-rose-400",
+    arrowColor: "text-rose-400",
+    lineColor: "bg-rose-400",
   },
   {
     icon: "⚙️",
     title: "Backend & API Integration",
     description:
       "From Firebase to custom REST APIs — we wire up everything your app needs to run reliably at scale.",
+    iconBg: "bg-amber-400",
+    arrowColor: "text-amber-400",
+    lineColor: "bg-amber-400",
   },
   {
     icon: "🚀",
     title: "App Store Deployment",
     description:
       "End-to-end launch support. We handle publishing to both the App Store and Google Play, from testing to going live.",
+    iconBg: "bg-emerald-400",
+    arrowColor: "text-emerald-400",
+    lineColor: "bg-emerald-400",
   },
   {
     icon: "⚡",
     title: "MVP Development",
     description:
       "Validate your idea fast. We scope and ship your minimum viable product in weeks, not months.",
+    iconBg: "bg-blue-400",
+    arrowColor: "text-blue-400",
+    lineColor: "bg-blue-400",
   },
   {
     icon: "🛠️",
     title: "App Maintenance & Support",
     description:
       "We don't disappear after launch. Long-term maintenance, updates, and technical support to keep your app healthy.",
+    iconBg: "bg-indigo-100",
+    arrowColor: "text-indigo-500",
+    lineColor: "bg-indigo-100",
   },
 ];
 
-const caseStudies = [
-  {
-    tag: "FinTech",
-    title: "SmartWallet",
-    subtitle: "Digital Banking App",
-    problem: "A fintech startup needed a secure, fast digital wallet app to enter a competitive market with limited runway.",
-    solution: "Flutter MVP in 8 weeks with biometric login, real-time transaction feed, and Firebase backend.",
-    impact: "₹2Cr seed raised within 3 months of launch. 10,000+ users in 60 days.",
-    color: "from-blue-600 to-blue-800",
-    emoji: "💳",
-  },
-  {
-    tag: "HealthTech",
-    title: "MediTrack",
-    subtitle: "Patient Management",
-    problem: "A clinic chain manually tracked patient records across 12 branches with no unified system.",
-    solution: "Cross-platform Flutter app with offline sync, appointment scheduling, and doctor dashboards.",
-    impact: "70% reduction in admin time. Zero data loss incidents after rollout.",
-    color: "from-emerald-600 to-teal-700",
-    emoji: "🏥",
-  },
-  {
-    tag: "EdTech",
-    title: "LearnPath",
-    subtitle: "Learning Platform",
-    problem: "An edtech founder needed an interactive learning platform rivaling existing giants within a tight budget.",
-    solution: "Flutter app with video streaming, quizzes, progress tracking, and Razorpay payment integration.",
-    impact: "5,000+ learners onboarded in Month 1. Rated 4.8★ on Play Store.",
-    color: "from-violet-600 to-purple-800",
-    emoji: "📚",
-  },
-];
+
 
 const testimonials = [
   {
@@ -116,23 +105,42 @@ const whyFlutter = [
 ];
 
 export default function HomePage() {
+  const phoneContainerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: phoneContainerRef,
+    offset: ["start end", "center center"],
+  });
+
+  const iosScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  const iosX = useTransform(scrollYProgress, [0, 0.5], [0, 88]);
+  const iosY = useTransform(scrollYProgress, [0, 0.5], [0, 8]);
+  const iosOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.6]);
+  const iosZIndex = useTransform(scrollYProgress, [0, 0.25, 0.5], [20, 20, 0]);
+
+  const androidScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.25]);
+  const androidX = useTransform(scrollYProgress, [0, 0.5], [0, -88]);
+  const androidY = useTransform(scrollYProgress, [0, 0.5], [0, -8]);
+  const androidOpacity = useTransform(scrollYProgress, [0, 0.5], [0.7, 1]);
+  const androidZIndex = useTransform(scrollYProgress, [0, 0.25, 0.5], [0, 0, 20]);
+
   return (
     <div className="overflow-x-hidden">
 
       {/* ── HERO ─────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center justify-center bg-[#0A0F1E] overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center bg-[#F8FAFC] overflow-hidden">
         <div className="absolute inset-0 grid-overlay opacity-60" />
-        <div className="absolute top-1/3 -left-32 w-96 h-96 bg-[#027DFD] rounded-full blur-[120px] opacity-20 animate-pulse-slow" />
-        <div className="absolute bottom-1/3 -right-32 w-96 h-96 bg-[#54C5F8] rounded-full blur-[120px] opacity-15 animate-pulse-slow" style={{ animationDelay: "2s" }} />
+        <div className="absolute top-1/3 -left-32 w-96 h-96 bg-slate-200 rounded-full blur-[120px] opacity-60 animate-pulse-slow" />
+        <div className="absolute bottom-1/3 -right-32 w-96 h-96 bg-slate-300 rounded-full blur-[120px] opacity-40 animate-pulse-slow" style={{ animationDelay: "2s" }} />
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-28 lg:pt-36 pb-20 text-center w-full">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/10 rounded-full px-4 py-2 mb-8">
-            <span className="w-2 h-2 bg-emerald-400 rounded-full" />
-            <span className="text-white/80 text-sm font-medium">Currently accepting new projects</span>
+          <div className="inline-flex items-center gap-2 bg-white border border-slate-200 shadow-sm rounded-full px-4 py-2 mb-8">
+            <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+            <span className="text-slate-600 text-sm font-medium">Currently accepting new projects</span>
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-[82px] font-bold text-white leading-[1.05] tracking-tight mb-7">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-[82px] font-bold text-slate-900 leading-[1.05] tracking-tight mb-7">
             We build powerful
             <br />
             <span className="gradient-text">cross-platform apps</span>
@@ -140,7 +148,7 @@ export default function HomePage() {
             with Flutter.
           </h1>
 
-          <p className="max-w-2xl mx-auto text-lg lg:text-xl text-slate-400 leading-relaxed mb-10">
+          <p className="max-w-2xl mx-auto text-lg lg:text-xl text-slate-600 leading-relaxed mb-10">
             FourStackTech crafts high-quality iOS & Android applications for startups and businesses.
             From UI/UX design to backend integration and app store launch — we handle it all.
           </p>
@@ -148,34 +156,25 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2.5 bg-[#027DFD] hover:bg-[#0553B1] text-white font-bold px-8 py-4 rounded-full text-base transition-all duration-300 shadow-2xl shadow-blue-900/40 hover:-translate-y-1 hover:shadow-blue-700/50"
+              className="group inline-flex items-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold px-8 py-4 rounded-full text-base transition-all duration-300 shadow-2xl shadow-slate-900/40 hover:-translate-y-1 hover:shadow-slate-700/50"
             >
               Get a Free Quote
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               href="/work"
-              className="inline-flex items-center gap-2 text-white/70 hover:text-white font-medium px-6 py-4 rounded-full border border-white/20 hover:border-white/40 hover:bg-white/5 transition-all duration-300 text-sm"
+              className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 bg-white font-medium px-6 py-4 rounded-full border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all duration-300 text-sm shadow-sm"
             >
-              View our work
+              Work Experience
               <ChevronRight size={16} />
             </Link>
           </div>
 
-          {/* Stats */}
-          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto border-t border-white/10 pt-12">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-3xl lg:text-4xl font-bold text-white mb-1">{stat.value}</div>
-                <div className="text-slate-400 text-sm">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+
         </div>
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-600">
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
           <div className="w-px h-8 bg-gradient-to-b from-slate-600 to-transparent" />
         </div>
       </section>
@@ -185,35 +184,38 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
             <div>
-              <p className="text-xs font-semibold text-[#027DFD] uppercase tracking-widest mb-3">What We Do</p>
+              <p className="text-xs font-semibold text-slate-900 uppercase tracking-widest mb-3">What We Do</p>
               <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-                Full-stack Flutter
+                Flutter development
                 <br />
-                development services.
+                services.
               </h2>
             </div>
             <Link
               href="/services"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#027DFD] hover:text-[#0553B1] shrink-0 transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-900 hover:text-slate-700 shrink-0 transition-colors"
             >
               All services <ArrowRight size={16} />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border border-slate-100 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((svc) => (
               <div
                 key={svc.title}
-                className="bg-white p-8 hover:bg-blue-50/40 transition-colors duration-300 group cursor-pointer border-b md:border-b-0 last:border-b-0"
+                className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
               >
-                <div className="text-3xl mb-5">{svc.icon}</div>
-                <div className="flex items-start justify-between gap-4 mb-3">
+                <div className={`w-12 h-12 rounded-full flex items-center justify-center text-xl mb-6 ${svc.iconBg}`}>
+                  {svc.icon}
+                </div>
+                <div className="flex items-center justify-between gap-4 mb-3">
                   <h3 className="text-lg font-bold text-slate-900 leading-snug">{svc.title}</h3>
-                  <span className="text-slate-300 group-hover:text-[#027DFD] transition-colors mt-0.5 shrink-0">
+                  <span className={`${svc.arrowColor} transition-transform group-hover:translate-x-1 shrink-0`}>
                     <ArrowRight size={18} />
                   </span>
                 </div>
                 <p className="text-slate-500 text-sm leading-relaxed">{svc.description}</p>
+                <div className={`w-10 h-0.5 mt-6 ${svc.lineColor}`} />
               </div>
             ))}
           </div>
@@ -225,7 +227,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-xs font-semibold text-[#027DFD] uppercase tracking-widest mb-3">Our Technology</p>
+              <p className="text-xs font-semibold text-slate-900 uppercase tracking-widest mb-3">Our Technology</p>
               <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-6">
                 Why we bet on
                 <br />
@@ -237,7 +239,7 @@ export default function HomePage() {
               <ul className="flex flex-col gap-3">
                 {whyFlutter.map((point) => (
                   <li key={point} className="flex items-start gap-3">
-                    <CheckCircle2 size={20} className="text-[#027DFD] mt-0.5 shrink-0" />
+                    <CheckCircle2 size={20} className="text-slate-900 mt-0.5 shrink-0" />
                     <span className="text-slate-700 text-sm leading-relaxed">{point}</span>
                   </li>
                 ))}
@@ -246,17 +248,26 @@ export default function HomePage() {
 
             {/* Phone mockup */}
             <div className="flex items-center justify-center">
-              <div className="relative w-72 h-[480px]">
+              <div ref={phoneContainerRef} className="relative w-72 h-[480px]">
                 {/* Main phone */}
-                <div className="absolute left-0 top-0 w-56 h-[420px] bg-slate-900 rounded-[40px] border-4 border-slate-700 shadow-2xl overflow-hidden z-10">
+                <motion.div 
+                  style={{
+                    scale: iosScale,
+                    x: iosX,
+                    y: iosY,
+                    opacity: iosOpacity,
+                    zIndex: iosZIndex
+                  }}
+                  className="absolute left-0 top-0 w-56 h-[420px] bg-slate-900 rounded-[40px] border-4 border-slate-700 shadow-2xl overflow-hidden"
+                >
                   <div className="w-full h-6 bg-slate-800 flex items-center justify-center">
                     <div className="w-16 h-3 bg-slate-700 rounded-full" />
                   </div>
                   <div className="p-4 flex flex-col gap-3">
-                    <div className="h-6 w-24 bg-[#027DFD] rounded-lg" />
+                    <div className="h-6 w-24 bg-slate-900 rounded-lg" />
                     <div className="h-4 w-full bg-slate-700 rounded" />
                     <div className="h-4 w-3/4 bg-slate-700 rounded" />
-                    <div className="h-28 w-full bg-gradient-to-br from-[#027DFD] to-[#54C5F8] rounded-2xl mt-2 flex items-center justify-center">
+                    <div className="h-28 w-full bg-gradient-to-br from-slate-900 to-slate-700 rounded-2xl mt-2 flex items-center justify-center">
                       <span className="text-3xl">📊</span>
                     </div>
                     <div className="grid grid-cols-2 gap-2 mt-1">
@@ -271,10 +282,19 @@ export default function HomePage() {
                       <span key={i} className="text-lg">{icon}</span>
                     ))}
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Second phone */}
-                <div className="absolute right-0 top-12 w-44 h-[340px] bg-slate-900 rounded-[36px] border-4 border-slate-700 shadow-xl overflow-hidden opacity-70 z-0">
+                <motion.div 
+                  style={{
+                    scale: androidScale,
+                    x: androidX,
+                    y: androidY,
+                    opacity: androidOpacity,
+                    zIndex: androidZIndex
+                  }}
+                  className="absolute right-0 top-12 w-44 h-[340px] bg-slate-900 rounded-[36px] border-4 border-slate-700 shadow-xl overflow-hidden"
+                >
                   <div className="p-3 pt-6 flex flex-col gap-2">
                     <div className="h-5 w-20 bg-[#54C5F8] rounded-lg" />
                     <div className="h-3 w-full bg-slate-700 rounded" />
@@ -284,13 +304,13 @@ export default function HomePage() {
                     <div className="h-3 w-full bg-slate-700 rounded" />
                     <div className="h-3 w-3/4 bg-slate-700 rounded" />
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Floating badges */}
-                <div className="absolute -top-4 -left-6 bg-white rounded-2xl shadow-lg px-4 py-3 flex items-center gap-2 text-sm font-bold text-slate-900 border border-slate-100 z-20">
-                  <span className="text-lg">⚡</span> 60fps
+                <div className="absolute -top-4 -left-6 bg-white rounded-2xl shadow-lg px-4 py-3 flex items-center gap-2 text-sm font-bold text-slate-900 border border-slate-100 z-30">
+                  <span className="text-lg">⚡</span> 120fps
                 </div>
-                <div className="absolute bottom-4 -left-6 bg-white rounded-2xl shadow-lg px-4 py-3 text-sm border border-slate-100 z-20">
+                <div className="absolute bottom-4 -left-6 bg-white rounded-2xl shadow-lg px-4 py-3 text-sm border border-slate-100 z-30">
                   <p className="font-bold text-slate-900">1 Codebase</p>
                   <p className="text-slate-500 text-xs">iOS + Android</p>
                 </div>
@@ -300,64 +320,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── CASE STUDIES ─────────────────────────────────── */}
-      <section className="section-pad bg-white" id="case-studies">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="text-xs font-semibold text-[#027DFD] uppercase tracking-widest mb-3">Our Work</p>
-            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">Case Studies</h2>
-            <p className="text-slate-500 mt-4 max-w-xl mx-auto">Real problems. Real solutions. Real impact.</p>
-          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {caseStudies.map((cs) => (
-              <div
-                key={cs.title}
-                className="group bg-white border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className={`bg-gradient-to-br ${cs.color} p-8 flex items-center justify-between`}>
-                  <span className="text-5xl">{cs.emoji}</span>
-                  <span className="text-white/80 text-xs font-bold uppercase tracking-widest bg-white/10 rounded-full px-3 py-1.5">
-                    {cs.tag}
-                  </span>
-                </div>
-                <div className="p-6 flex flex-col gap-4">
-                  <div>
-                    <h3 className="text-lg font-bold text-slate-900">{cs.title}</h3>
-                    <p className="text-sm text-slate-400">{cs.subtitle}</p>
-                  </div>
-                  <div className="flex flex-col gap-3 text-sm">
-                    <div>
-                      <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Problem</p>
-                      <p className="text-slate-600 leading-relaxed">{cs.problem}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Solution</p>
-                      <p className="text-slate-600 leading-relaxed">{cs.solution}</p>
-                    </div>
-                    <div className="pt-2 border-t border-slate-100">
-                      <p className="text-xs font-bold text-[#027DFD] uppercase tracking-wider mb-1">Impact</p>
-                      <p className="text-slate-900 font-semibold leading-relaxed">{cs.impact}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link
-              href="/work"
-              className="inline-flex items-center gap-2 border-2 border-slate-200 hover:border-[#027DFD] hover:text-[#027DFD] text-slate-700 font-semibold px-8 py-3.5 rounded-full transition-all duration-200"
-            >
-              View all case studies <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* ── TESTIMONIALS ─────────────────────────────────── */}
-      <section className="section-pad bg-[#0A0F1E]">
+      {/* <section className="section-pad bg-[#0A0F1E]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-xs font-semibold text-[#54C5F8] uppercase tracking-widest mb-3">Testimonials</p>
@@ -376,7 +342,7 @@ export default function HomePage() {
                 </div>
                 <p className="text-slate-300 text-sm leading-relaxed mb-6">&ldquo;{t.content}&rdquo;</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#027DFD] to-[#54C5F8] flex items-center justify-center text-white font-bold text-sm shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-slate-900 to-slate-700 flex items-center justify-center text-white font-bold text-sm shrink-0">
                     {t.name[0]}
                   </div>
                   <div>
@@ -388,13 +354,13 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── PROCESS ──────────────────────────────────────── */}
       <section className="section-pad bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
-            <p className="text-xs font-semibold text-[#027DFD] uppercase tracking-widest mb-3">Our Process</p>
+            <p className="text-xs font-semibold text-slate-900 uppercase tracking-widest mb-3">Our Process</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">How we build.</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -415,19 +381,19 @@ export default function HomePage() {
       </section>
 
       {/* ── FINAL CTA ────────────────────────────────────── */}
-      <section className="bg-[#027DFD] py-24">
+      <section className="bg-slate-900 py-24">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
-          <p className="text-blue-200 text-xs font-semibold uppercase tracking-widest mb-4">Ready to build?</p>
+          <p className="text-slate-300 text-xs font-semibold uppercase tracking-widest mb-4">Ready to build?</p>
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
             Let&apos;s turn your idea into
             <br />a powerful mobile app.
           </h2>
-          <p className="text-blue-100 text-base mb-8">
+          <p className="text-slate-200 text-base mb-8">
             Tell us about your project. We respond within 24 hours — no templates, no spam.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-white text-[#027DFD] hover:bg-blue-50 font-bold px-8 py-4 rounded-full text-base transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 bg-white text-slate-900 hover:bg-slate-100 font-bold px-8 py-4 rounded-full text-base transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5"
           >
             Get a Free Quote <ArrowRight size={18} />
           </Link>

@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FourStackTech
+
+FourStackTech is a modern Next.js website for a Flutter app development company. The project includes a polished marketing site with pages for services, work, careers, about, and contact, along with a contact/application flow that connects to Supabase.
+
+## Tech Stack
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS
+- Supabase
+- Framer Motion
+- Lucide React
+
+## Features
+
+- Responsive landing page with hero, services, testimonials, and stats
+- Dedicated pages for About, Services, Work, Careers, and Contact
+- Contact/application submission experience with Supabase integration
+- SEO metadata and polished UI for a professional agency brand
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies
+   ```bash
+   npm install
+   ```
+
+2. Create a local environment file
+   ```bash
+   touch .env.local
+   ```
+
+3. Add your Supabase environment variables
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
+
+4. Run the development server
+   ```bash
+   npm run dev
+   ```
+
+5. Open http://localhost:3000 in your browser
+
+## Available Scripts
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run start
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- src/app: route-based pages and API handlers
+- src/components: reusable UI components such as Navbar and Footer
+- src/lib: shared library utilities, including Supabase client setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Notes
 
-## Learn More
+If you want to deploy this project, make sure the Supabase environment variables are configured in your hosting platform as well.
 
-To learn more about Next.js, take a look at the following resources:
+## Database Setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To fix the `ERROR: 42710: policy "Allow public insert to job_applications" already exists` error when configuring your database, run this query in your Supabase SQL editor:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```sql
+-- First, drop the policy if it already exists
+DROP POLICY IF EXISTS "Allow public insert to job_applications" ON job_applications;
 
-## Deploy on Vercel
+-- Then, create your policy for public inserts
+CREATE POLICY "Allow public insert to job_applications" 
+ON job_applications 
+FOR INSERT 
+WITH CHECK (true);
+```
+atyre sui ja em kav chu topa
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+
+
+
+
+
+change blue color to white and first all charactre letter coclor change 
+color je box ma che ene change kari nakh 

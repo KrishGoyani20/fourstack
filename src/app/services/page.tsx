@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { FadeInView } from "@/components/FadeInView";
 
 export const metadata: Metadata = {
   title: "Services — FourStackTech",
@@ -24,7 +25,7 @@ const services = [
       "Custom animations and complex UI",
       "Thorough testing (unit, widget, integration)",
     ],
-    color: "from-blue-600 to-blue-800",
+    color: "from-slate-600 to-slate-800",
   },
   {
     id: "design",
@@ -126,19 +127,19 @@ export default function ServicesPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="pt-32 pb-20 bg-[#0A0F1E] relative overflow-hidden">
+      <section className="pt-32 pb-20 bg-[#F8FAFC] relative overflow-hidden">
         <div className="absolute inset-0 grid-overlay opacity-40" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#027DFD] rounded-full blur-[150px] opacity-10" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-slate-900 rounded-full blur-[150px] opacity-30" />
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative text-center">
-          <p className="text-xs font-semibold text-[#54C5F8] uppercase tracking-widest mb-4">
+          <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">
             What We Offer
           </p>
-          <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
+          <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 leading-tight mb-6">
             End-to-end Flutter
             <br />
             <span className="gradient-text">development services.</span>
           </h1>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
             From ideation to app store launch, we provide every service your mobile product needs — under one roof, with one team.
           </p>
         </div>
@@ -152,7 +153,7 @@ export default function ServicesPage() {
             id={svc.id}
             className={`border-b border-slate-100 ${i % 2 === 1 ? "bg-[#F8FAFC]" : "bg-white"}`}
           >
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
+            <FadeInView className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div className={i % 2 === 1 ? "lg:order-2" : ""}>
                   <div className="flex items-center gap-4 mb-6">
@@ -164,7 +165,7 @@ export default function ServicesPage() {
                   <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-3">
                     {svc.title}
                   </h2>
-                  <p className="text-[#027DFD] font-semibold text-base mb-5">
+                  <p className="text-slate-900 font-semibold text-base mb-5">
                     {svc.tagline}
                   </p>
                   <p className="text-slate-500 leading-relaxed mb-8">
@@ -172,7 +173,7 @@ export default function ServicesPage() {
                   </p>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 bg-[#027DFD] hover:bg-[#0553B1] text-white font-semibold px-6 py-3 rounded-full text-sm transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-blue-200"
+                    className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold px-6 py-3 rounded-full text-sm transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-slate-200"
                   >
                     Discuss this service <ArrowRight size={16} />
                   </Link>
@@ -194,54 +195,55 @@ export default function ServicesPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </FadeInView>
           </div>
         ))}
       </section>
 
       {/* Tech Stack */}
-      <section className="section-pad bg-[#0A0F1E]">
+      <section className="section-pad bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
-            <p className="text-xs font-semibold text-[#54C5F8] uppercase tracking-widest mb-3">
+            <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-3">
               Tech Stack
             </p>
-            <h2 className="text-4xl font-bold text-white">Our toolkit.</h2>
+            <h2 className="text-4xl font-bold text-slate-900">Our toolkit.</h2>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {techStack.map((group) => (
-              <div
+            {techStack.map((group, idx) => (
+              <FadeInView
                 key={group.category}
-                className="bg-white/5 border border-white/10 rounded-2xl p-6"
+                delay={idx * 0.1}
+                className="bg-slate-100 border border-slate-200 rounded-2xl p-6"
               >
-                <p className="text-[#54C5F8] text-xs font-bold uppercase tracking-widest mb-4">
+                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-4">
                   {group.category}
                 </p>
                 <ul className="flex flex-col gap-2">
                   {group.items.map((item) => (
-                    <li key={item} className="text-slate-300 text-sm font-medium">
+                    <li key={item} className="text-slate-500 text-sm font-medium">
                       {item}
                     </li>
                   ))}
                 </ul>
-              </div>
+              </FadeInView>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="section-pad bg-[#027DFD]">
+      <section className="section-pad bg-slate-900">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
             Ready to get started?
           </h2>
-          <p className="text-blue-100 text-lg mb-8">
+          <p className="text-slate-200 text-lg mb-8">
             Tell us about your project and get a custom quote within 24 hours.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-white text-[#027DFD] font-bold px-8 py-4 rounded-full text-base hover:bg-blue-50 transition-all duration-200 shadow-xl"
+            className="inline-flex items-center gap-2 bg-white text-slate-900 font-bold px-8 py-4 rounded-full text-base hover:bg-slate-100 transition-all duration-200 shadow-xl"
           >
             Get a Free Quote <ArrowRight size={18} />
           </Link>

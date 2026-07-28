@@ -68,19 +68,19 @@ export default function ContactClientPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="pt-32 pb-20 bg-[#0A0F1E] relative overflow-hidden">
+      <section className="pt-32 pb-20 bg-[#F8FAFC] relative overflow-hidden">
         <div className="absolute inset-0 grid-overlay opacity-40" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#027DFD] rounded-full blur-[150px] opacity-10" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-slate-900 rounded-full blur-[150px] opacity-30" />
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative text-center">
-          <p className="text-xs font-semibold text-[#54C5F8] uppercase tracking-widest mb-4">
+          <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">
             Contact
           </p>
-          <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
+          <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 leading-tight mb-6">
             Let&apos;s build
             <br />
             <span className="gradient-text">something great.</span>
           </h1>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">
+          <p className="text-slate-600 text-lg max-w-xl mx-auto">
             Tell us about your project. We&apos;ll get back to you within 24 hours with a custom
             response — no templates, no spam.
           </p>
@@ -97,22 +97,22 @@ export default function ContactClientPage() {
 
               <div className="flex flex-col gap-6 mb-10">
                 {[
-                  { Icon: Mail, label: "Email", value: "hello@fourstacktech.com", href: "mailto:hello@fourstacktech.com" },
-                  { Icon: Phone, label: "Phone / WhatsApp", value: "+1 (555) 000-0000", href: "tel:+15550000000" },
+                  { Icon: Mail, label: "Email", value: "fourstacktech02@gmail.com", href: "mailto:fourstacktech02@gmail.com" },
+                  { Icon: Phone, label: "Phone / WhatsApp", value: "+91 9537295884", href: "tel:+919537295884" },
                 ].map(({ Icon, label, value, href }) => (
                   <div key={label} className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
-                      <Icon size={18} className="text-[#027DFD]" />
+                    <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center shrink-0">
+                      <Icon size={18} className="text-slate-900" />
                     </div>
                     <div>
                       <p className="font-semibold text-slate-900 text-sm mb-1">{label}</p>
-                      <a href={href} className="text-slate-500 text-sm hover:text-[#027DFD] transition-colors">{value}</a>
+                      <a href={href} className="text-slate-500 text-sm hover:text-slate-900 transition-colors">{value}</a>
                     </div>
                   </div>
                 ))}
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
-                    <MapPin size={18} className="text-[#027DFD]" />
+                  <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center shrink-0">
+                    <MapPin size={18} className="text-slate-900" />
                   </div>
                   <div>
                     <p className="font-semibold text-slate-900 text-sm mb-1">Location</p>
@@ -122,7 +122,7 @@ export default function ContactClientPage() {
               </div>
 
               <div>
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Connect</p>
+                <p className="text-xs font-bold text-slate-600 uppercase tracking-widest mb-4">Connect</p>
                 <div className="flex items-center gap-3">
                   {[
                     { comp: <SocialLinkedIn />, href: "#", label: "LinkedIn" },
@@ -130,7 +130,7 @@ export default function ContactClientPage() {
                     { comp: <SocialTwitter />, href: "#", label: "Twitter" },
                   ].map(({ comp, href, label }) => (
                     <a key={label} href={href} aria-label={label}
-                      className="w-10 h-10 rounded-xl bg-slate-100 hover:bg-[#027DFD] hover:text-white text-slate-600 flex items-center justify-center transition-all duration-200">
+                      className="w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-900 hover:text-white text-slate-600 flex items-center justify-center transition-all duration-200">
                       {comp}
                     </a>
                   ))}
@@ -169,7 +169,7 @@ export default function ContactClientPage() {
                       </label>
                       <input id="contact-name" name="name" type="text" required value={form.name} onChange={handleChange}
                         placeholder="John Smith"
-                        className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-[#027DFD] focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm text-slate-900 placeholder:text-slate-400" />
+                        className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-200 outline-none transition-all text-sm text-slate-900 placeholder:text-slate-600" />
                     </div>
                     <div>
                       <label htmlFor="contact-email" className="block text-sm font-semibold text-slate-700 mb-2">
@@ -177,7 +177,7 @@ export default function ContactClientPage() {
                       </label>
                       <input id="contact-email" name="email" type="email" required value={form.email} onChange={handleChange}
                         placeholder="john@company.com"
-                        className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-[#027DFD] focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm text-slate-900 placeholder:text-slate-400" />
+                        className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-200 outline-none transition-all text-sm text-slate-900 placeholder:text-slate-600" />
                     </div>
                   </div>
                   <div>
@@ -186,7 +186,7 @@ export default function ContactClientPage() {
                     </label>
                     <input id="contact-company" name="company" type="text" value={form.company} onChange={handleChange}
                       placeholder="Acme Inc. (optional)"
-                      className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-[#027DFD] focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm text-slate-900 placeholder:text-slate-400" />
+                      className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-200 outline-none transition-all text-sm text-slate-900 placeholder:text-slate-600" />
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
@@ -194,7 +194,7 @@ export default function ContactClientPage() {
                         Project Type *
                       </label>
                       <select id="contact-project-type" name="projectType" required value={form.projectType} onChange={handleChange}
-                        className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-[#027DFD] focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm text-slate-900 bg-white">
+                        className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-200 outline-none transition-all text-sm text-slate-900 bg-white">
                         <option value="">Select project type</option>
                         {projectTypes.map((t) => <option key={t} value={t}>{t}</option>)}
                       </select>
@@ -204,7 +204,7 @@ export default function ContactClientPage() {
                         Budget Range
                       </label>
                       <select id="contact-budget" name="budget" value={form.budget} onChange={handleChange}
-                        className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-[#027DFD] focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm text-slate-900 bg-white">
+                        className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-200 outline-none transition-all text-sm text-slate-900 bg-white">
                         <option value="">Select budget range</option>
                         {budgetOptions.map((b) => <option key={b} value={b}>{b}</option>)}
                       </select>
@@ -216,17 +216,17 @@ export default function ContactClientPage() {
                     </label>
                     <textarea id="contact-message" name="message" required rows={6} value={form.message} onChange={handleChange}
                       placeholder="Describe your app idea, what problem it solves, your target users, and any key features you have in mind..."
-                      className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-[#027DFD] focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm text-slate-900 placeholder:text-slate-400 resize-none" />
+                      className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-200 outline-none transition-all text-sm text-slate-900 placeholder:text-slate-600 resize-none" />
                   </div>
                   <button type="submit" disabled={loading}
-                    className="inline-flex items-center justify-center gap-2 bg-[#027DFD] hover:bg-[#0553B1] disabled:bg-slate-300 text-white font-bold px-8 py-4 rounded-full text-base transition-all duration-200 shadow-lg hover:shadow-xl hover:shadow-blue-200 hover:-translate-y-0.5">
+                    className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 disabled:bg-slate-300 text-white font-bold px-8 py-4 rounded-full text-base transition-all duration-200 shadow-lg hover:shadow-xl hover:shadow-slate-200 hover:-translate-y-0.5">
                     {loading ? (
                       <><span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />Sending...</>
                     ) : (
                       <><Send size={18} />Send Message</>
                     )}
                   </button>
-                  <p className="text-slate-400 text-xs">
+                  <p className="text-slate-600 text-xs">
                     By submitting this form, you agree to our privacy policy. We never share your data with third parties.
                   </p>
                 </form>
